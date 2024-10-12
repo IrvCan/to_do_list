@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'to_do_list';
+
+  constructor(private themeService: ThemeService) {}
+
+  theme: string = 'lara-dark-blue';
+
+
+  toggleTheme() {
+    this.theme = this.theme === 'lara-dark-blue' ? 'lara-light-blue' : 'lara-dark-blue';
+
+    this.themeService.switchTheme(this.theme);
+  }
 }
