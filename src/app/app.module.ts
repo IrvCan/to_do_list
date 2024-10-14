@@ -10,8 +10,12 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { ButtonModule } from 'primeng/button';
 import { InputTextModule } from 'primeng/inputtext';
 import { PasswordModule } from 'primeng/password';
+import { ToolbarModule } from 'primeng/toolbar';
+
 import { LoginComponent } from './modules/auth/login/login.component';
 import { FormsModule } from '@angular/forms';
+import { DashboardModule } from './modules/dashboard/dashboard.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -20,11 +24,17 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     AppRoutingModule,
+
     ButtonModule,
     InputTextModule,
     PasswordModule,
+    ToolbarModule,
+
+    DashboardModule,
+
     StoreModule.forRoot({}, {}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })

@@ -1,4 +1,14 @@
-<div class="login-form">
-  <h2>Login</h2>
-  <p-button icon="pi pi-plus" styleClass="p-button-raised" (click)="toggleTheme()"> Toggle Theme </p-button>
+<div>
+
+  <p-toolbar>
+
+    <ng-template pTemplate="end">
+      <div class="flex align-items-center gap-2">
+        <p-button icon="pi pi-plus" [label]="themeMode" [raised]="true" (click)="toggleTheme()"/>
+      </div>
+    </ng-template>
+
+  </p-toolbar>
+
 </div>
+<router-outlet></router-outlet>

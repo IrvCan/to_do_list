@@ -1,1 +1,35 @@
-<p>todo-list works!</p>
+<div class="px-6 mx-6 my-3 gap-2">
+
+  <div *ngIf="!addTaskFlag" class="gap-4 flex flex-row mb-3 hover:surface-300 newTaskContainer" (click)="addTask()">
+    <i class="pi pi-plus"></i>
+    <span>add new task</span>
+  </div>
+
+  <div *ngIf="addTaskFlag" class="gap-4 flex flex-row mb-3 ">
+    <p-button icon="pi pi-plus" label="save Task" styleClass="p-button-raised" (click)="saveTask()" [disabled]="taskTitle.length>0" />
+    <textarea rows="1" cols="40" pInputTextarea [(ngModel)]="taskTitle"></textarea>
+    <p-button icon="pi pi-times" [rounded]="true" (click)="addTask()" />
+  </div>
+
+  <div *ngFor="let task of taskList">
+    <p-panel [header]="task.title" [toggleable]="true" [collapsed]="true" (click)="taskConfig()" >
+      <p>
+          {{task.description}}
+      </p>
+
+      <ng-template pTemplate="footer">
+        <div class="flex flex-wrap align-items-center justify-content-between gap-3">
+            <div class="flex align-items-center gap-2">
+                <p-button icon="pi pi-user" rounded="true" text="true" />
+                <p-button icon="pi pi-bookmark" severity="secondary" rounded="true" text="true" />
+            </div>
+            <span class="p-text-secondary">
+                Updated 2 hours ago
+            </span>
+        </div>
+      </ng-template>
+
+    </p-panel>
+  </div>
+
+</div>
